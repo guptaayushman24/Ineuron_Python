@@ -1,0 +1,50 @@
+class Bank_Account :
+  def __init__(self,name,acc_no,balance) :
+    self.acc_no = acc_no
+    self.name = name
+    self.balance = balance
+
+  def account_detail(self) :
+    print("Name of the account holder is {} and the account number is {} and the balance in the account is {}".format(self.name,self.acc_no,self.balance))
+
+  def deposit(self) :
+    amount_dep = int(input("Enter the amount to be deposited "))
+    self.balance = self.balance+amount_dep
+    print("{} deposited {} Rs".format(self.name,amount_dep))
+    print("{} balance after deposit {} Rs".format(self.name,self.balance))
+  def withdraw(self) :
+    amount_with = int(input("Enter the amount to be withdraw "))
+
+    if (amount_with>self.balance) :
+      print("Insufficent amount")
+      
+    else :
+      self.balance = self.balance-amount_with
+      print("{} withdraw {} Rs".format(self.name,amount_with))
+      print("{} Rs is the balance after withdraw".format(self.balance))
+
+
+  def final_balance(self) :
+    print("{} your final amount is {} Rs after doing all tranaction".format(self.name,self.balance))
+
+print("Press 1 for the account detail")
+print("Press 2 for the depositing the money")
+print("Press 3 for withdrawing the money")
+print("Press 4 for the seeing the account detail after all the transction")
+bankaccount1 = Bank_Account("Alice",11212121,1600)
+while (True) :
+  option = input("Enter the number 1 or 2 or 3 or 4 for performing the operation and type exit if you want to end the operation ")
+  if (option=="1") :
+    bankaccount1.account_detail()
+
+  elif (option=="2") :
+    bankaccount1.deposit()
+
+  elif (option=="3") :
+    bankaccount1.withdraw()
+
+  elif (option=="4") :
+    bankaccount1.final_balance()
+  
+  elif option.lower()=="exit" :
+    break
